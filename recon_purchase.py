@@ -120,7 +120,7 @@ def find_mismatch_reasons(df1_filtered, df2_filtered, matched_transactions, time
     return mismatched_transactions
 
 def main():
-    st.title("Transaction Matching Application")
+    st.title("Petron Transaction Matching Application")
 
     # Upload files
     file1 = st.file_uploader("Upload the fleetcard CSV file from Petron", type="csv")
