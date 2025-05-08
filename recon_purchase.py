@@ -25,15 +25,15 @@ def load_and_prepare_data(file1, file2):
 
     # Convert numeric columns to float
     df1['Amount (RM)'] = pd.to_numeric(df1['Amount (RM)'], errors='coerce')
-    df2['TotalAmount'] = pd.to_numeric(df2['TotalAmount'], errors='coerce')
+    df2['Amount'] = pd.to_numeric(df2['Amount'], errors='coerce')
 
     # Filter necessary columns for matching
     df1_filtered = df1[['TransactionDateTime', 'Amount (RM)', 'Vehicle Regs. No.']]
-    df2_filtered = df2[['TransactionDateTime', 'TotalAmount', 'VehicleRegistrationNo']]
+    df2_filtered = df2[['TransactionDateTime', 'Amount', 'VehicleRegistrationNo']]
 
     # Rename columns for clarity
     df1_filtered.rename(columns={'Amount (RM)': 'Amount1', 'Vehicle Regs. No.': 'VehicleNumber1'}, inplace=True)
-    df2_filtered.rename(columns={'TotalAmount': 'Amount2', 'VehicleRegistrationNo': 'VehicleNumber2'}, inplace=True)
+    df2_filtered.rename(columns={'Amount': 'Amount2', 'VehicleRegistrationNo': 'VehicleNumber2'}, inplace=True)
     
     return df1, df1_filtered, df2_filtered
 
